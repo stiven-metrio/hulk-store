@@ -53,7 +53,7 @@ public class ProductController {
             .orElseThrow(() -> new ResourceNotFoundException("Product not found for this id :: " + productId));
 
     	product.setName(productDetails.getName());
-    	product.setPrice(productDetails.getPrice());
+    	product.setDescription(productDetails.getDescription());
         final Product updatedProduct = productRepository.save(product);
         
         return ResponseEntity.ok(updatedProduct);

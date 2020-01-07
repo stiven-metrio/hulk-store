@@ -12,8 +12,9 @@ import javax.persistence.Table;
 public class Product {
 	
 	private long id;
+	private String category;
 	private String name;
-	private String price; // @edit -> Change to big Decimal
+	private String description; // @edit -> Change to big Decimal
 	
 	
 	public Product() {
@@ -21,41 +22,51 @@ public class Product {
 	}
 
 
-	public Product(long id, String name, String price) {
+	public Product(long id, String category, String name, String description) {
 		this.id = id;
+		this.category = category;
 		this.name = name;
-		this.price = price;
+		this.description = description;
 	}
 
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	public long getId() {
 		return id;
 	}
 
-
 	public void setId(long id) {
 		this.id = id;
 	}
+	
+	@Column(name = "category", nullable = false)
+	public String getCategory() {
+		return category;
+	}
 
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	
 	@Column(name = "name", nullable = false)
 	public String getName() {
 		return name;
 	}
 
-
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	@Column(name = "price", nullable = false)
-	public String getPrice() {
-		return price;
+	
+	@Column(name = "description", nullable = true)
+	public String getDescription() {
+		return description;
 	}
 
-
-	public void setPrice(String price) {
-		this.price = price;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	
 	
